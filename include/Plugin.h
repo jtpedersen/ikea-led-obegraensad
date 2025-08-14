@@ -8,7 +8,7 @@ public:
   virtual ~Plugin() = default;
 
   virtual void teardown();
-  virtual void websocketHook(DynamicJsonDocument &request);
+  virtual void websocketHook(const DynamicJsonDocument &request);
   virtual void setup() = 0;
   virtual void loop();
   virtual const char *getName() const = 0;

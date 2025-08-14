@@ -22,7 +22,7 @@ void DrawPlugin::teardown()
   Screen.cacheCurrent();
 }
 
-void DrawPlugin::websocketHook(DynamicJsonDocument &request)
+void DrawPlugin::websocketHook(const DynamicJsonDocument &request)
 {
   const char *event = request["event"];
 
