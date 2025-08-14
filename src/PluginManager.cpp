@@ -1,19 +1,6 @@
 #include "PluginManager.h"
 #include "scheduler.h"
 
-void Plugin::setId(int id)
-{
-    this->id = id;
-}
-
-int Plugin::getId() const
-{
-    return id;
-}
-
-void Plugin::teardown() {}
-void Plugin::loop() {}
-void Plugin::websocketHook(DynamicJsonDocument &request) {}
 
 PluginManager::PluginManager() : nextPluginId(1) {}
 
@@ -103,11 +90,16 @@ void PluginManager::setupActivePlugin()
 
 void PluginManager::runActivePlugin()
 {
-    if (activePlugin && currentStatus != UPDATE &&
-        currentStatus != LOADING && currentStatus != WSBINARY)
+    if (!activePlugin)
     {
-        activePlugin->loop();
+        return;
     }
+    if (currentStatus != NONE)
+    {
+        return;
+    }
+
+    activePlugin->loop();
 }
 
 Plugin *PluginManager::getActivePlugin() const
