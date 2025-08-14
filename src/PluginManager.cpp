@@ -1,8 +1,6 @@
 #include "PluginManager.h"
 #include "scheduler.h"
 
-Plugin::Plugin() : id(-1) {}
-
 void Plugin::setId(int id)
 {
     this->id = id;

@@ -6,7 +6,8 @@
 #include "signs.h"
 #include "constants.h"
 #include "storage.h"
-class Screen_
+#include "PixelDisplay.h"
+class Screen_ : public PixelDisplay
 {
 private:
   Screen_() = default;
