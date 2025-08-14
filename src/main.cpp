@@ -167,7 +167,7 @@ void baseSetup()
   pluginManager.addPlugin(new CirclePlugin());
   pluginManager.addPlugin(new RainPlugin());
   pluginManager.addPlugin(new FireworkPlugin());
-  pluginManager.addPlugin(new BlobPlugin());
+  pluginManager.addPlugin(new BlobPlugin(Screen));
 
 #ifdef ENABLE_SERVER
   pluginManager.addPlugin(new BigClockPlugin());
