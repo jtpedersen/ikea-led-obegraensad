@@ -105,13 +105,15 @@ struct Screen : public PixelDisplay {
 } display;
 
 
-struct DynamicJsonDocument {};
-#include "include/plugins/Blop.h"
+#include "Plugin.h"
 void Plugin::teardown() {}
-void Plugin::websocketHook(DynamicJsonDocument&) {}
+void Plugin::websocketHook(const DynamicJsonDocument&) {}
 void Plugin::loop() {}  // default no-op
 void Plugin::setId(int v) { id = v; }
 int  Plugin::getId() const { return id; }
+
+
+#include "plugins/Blop.h"
 
 
 auto plugin = new BlobPlugin(display);
