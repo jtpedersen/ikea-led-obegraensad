@@ -48,10 +48,8 @@ void onOTAEnd(bool success)
     {
         Screen.setPixelAtIndex(i, bits[i]);
     }
-
-    delay(1000);
-    currentStatus = NONE;
-    Screen.loadFromStorage();
+    sleep(2);
+    ESP.restart();
 }
 
 void initOTA(AsyncWebServer &server)

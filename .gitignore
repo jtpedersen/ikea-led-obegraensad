@@ -30,3 +30,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+.aider*
+plugin_tester/ddp
+cache/
