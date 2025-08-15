@@ -30,10 +30,11 @@ private:
 
   Ball balls[NUM_BALLS];
 
-  static constexpr float RADIUS = 7.0f;
-  static constexpr float SPEED = 0.1f;
+  static constexpr float RADIUS = 8.0f;
+  static constexpr float SPEED = .1f;
   static constexpr float CAP_VALUE = NUM_BALLS * .75;
-  static constexpr float GAMMA = 0.7f;
+  static constexpr float GAMMA = 0.71f;
+  static constexpr float brightness = 128.0f;
 
   float attenuation(float d, float radius) const;
   uint8_t toneMap(float v) const;

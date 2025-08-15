@@ -52,7 +52,8 @@ float BlobPlugin::attenuation(float d, float radius) const {
   if (d > radius)
     return 0.0f;
   float ratio = d / radius;
-  return (1.0f - ratio * ratio) * (1.0f - ratio * ratio);
+  const auto f = (1.0f - ratio * ratio);
+  return f*f;
 }
 
 uint8_t BlobPlugin::toneMap(float v) const {
@@ -60,7 +61,7 @@ uint8_t BlobPlugin::toneMap(float v) const {
     v = CAP_VALUE;
   float n = v / CAP_VALUE;
   float corrected = std::pow(n, 1.0f / GAMMA);
-  return static_cast<uint8_t>(corrected * 255.0f);
+  return static_cast<uint8_t>(corrected * brightness);
 }
 
 void BlobPlugin::updatePositions() {

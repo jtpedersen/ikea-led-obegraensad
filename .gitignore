@@ -31,5 +31,5 @@ dist-ssr
 *.sln
 *.sw?
 .aider*
-plugin_tester/ddp
+src/plugin_tester/ddp
 cache/
