@@ -1,8 +1,11 @@
 #!/bin/bash
-set -e
 set -x
-
 set -euo pipefail
+
+SERVER="http://192.168.1.112"
+DDP_PLUGIN_ID=17
+PLUGIN_ID=10
+
 
 cleanup() {
   echo "Cleaning up..."
@@ -15,15 +18,11 @@ cleanup() {
 
 trap 'cleanup; exit 0' INT TERM
 
-ROOT=$(pwd)/../../
+ROOT=`readlink -e $(pwd)/..`
 
 
 g++ -DHOST_DDP -I ${ROOT}/include -I . host_ddp.cpp ${ROOT}/src/plugins/Blop.cpp -o ddp
 
-# enable DDD plugin
-SERVER="http://192.168.1.112"
-DDP_PLUGIN_ID=17
-PLUGIN_ID=10
 
 # your cleanup commands here
 
